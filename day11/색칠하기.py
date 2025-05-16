@@ -2,17 +2,23 @@ t = int(input())
 
 for test_case in range(1, t+1):
     n = int(input())
-    r1, c1, r2, c2, color = map(int, input().split())
 
-    for i in range(r1):
-        for j in range(c1):
-            grid[i][j] = color
+    grid = [[0]*10 for _ in range(10)]
     
-    for a in range(r2):
-        for b in range(c2):
-            grid[i][j] = color
+    for _ in range(n):
+        r1, c1, r2, c2, color = map(int, input().split())
 
-    count = 0
-    for i in range(r1):
-        for j in range(c2):
-            if grid[i][j] >
+        for i in range(r1, r2+1):
+            for j in range(c1, c2+1):
+                if grid[i][j] == 0:
+                    grid[i][j] = color
+                elif grid[i][j] != color:
+                    grid[i][j] = 3
+
+    purple_count = 0
+    for i in range(10):
+        for j in range(10):
+            if grid[i][j] == 3:
+                purple_count += 1
+    
+    print(f"#{test_case} {purple_count}")
