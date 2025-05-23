@@ -5,25 +5,24 @@
 
 # 다음 첫 번째 수는 2 감소한 뒤 맨 뒤로, 그 다음 첫 번째 수는 3을 감소하고 맨 뒤로, 그 다음 수는 4, 그 다음 수는 5를 감소한다.
 
-t = int(input())
+t = 10
 
-for test_case in range(1,t+1):
+for test_case in range(1, t+1):
+    _ = input()
     numbers = list(map(int, input().split()))
 
     while True:
         for i in range(1, 6):
-            if numbers[0]-i < 0:
-                numbers.pop(0)
+            num = numbers.pop(0) -i
+            if num <= 0:
                 numbers.append(0)
                 break
             else:
-                a = numbers[0] - i
-                numbers.pop(0)
-                numbers.append(a)
+                numbers.append(num)
         else:
             # for문이 break 없이 정상 종료했을 때 계속 while문 진행
             continue
-        # for문에서 break 발생하면 이 부분 실행(while문 종료료)
+        # for문에서 break 발생하면 이 부분 실행(while문 종료)
         break
 
 
